@@ -1,5 +1,10 @@
 package model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Matricula {
     private final long numero;
     private final Estudiante estudiante;
@@ -23,7 +28,7 @@ public class Matricula {
         this.descuento = b.descuento;
         this.observaciones = b.observaciones;
 
-        // Aquí se conecta con el Singleton: se asigna el número automático al final de la creación
+        // conecta con el Singleton: se asigna el número automático al final de la creación
         this.numero = ConsecutivoMatricula.getInstancia().siguiente();
     }
 
@@ -48,6 +53,15 @@ public class Matricula {
         return calcularSubtotal() - calcularDescuentoAplicado();
     }
 
+    // --- Getters ---
+    public long getNumero() { return numero; }
+    public Estudiante getEstudiante() { return estudiante; }
+    public Programa getPrograma() { return programa; }
+    public LocalDate getFechaInicio() { return fechaInicio; }
+    public Docente getDocenteTutor() { return docenteTutor; }
+    public List<ServicioAdicional> getServicios() { return servicios; }
+    public double getDescuento() { return descuento; }
+    public String getObservaciones() { return observaciones; }
 
 
     //BUILDER
@@ -101,6 +115,7 @@ public class Matricula {
 
 
         // Método final que valida y ensambla la Matrícula
+
         public Matricula build() {
             // RN-01: Validaciones de datos obligatorios
             if (this.estudiante == null) {

@@ -40,6 +40,8 @@ public abstract class Programa implements Cloneable {
     public int getCupos() { return cupos; }
     public double getValorMensual() { return valorMensual; }
     public Modalidad getModalidad() { return modalidad; }
+    public String getNombre() { return nombre; }
+    public String getCodigo() { return codigo; }
 
     /**
      * Patrón Prototype: Se clona a sí mismo para independizar los cupos
